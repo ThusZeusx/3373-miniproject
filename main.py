@@ -78,34 +78,53 @@ while True:
     print("[3] - Withdrawal")
     print("[4] - Balance Check")
     print("[5] - Transfer Money")
-    choice = int(input("Enter your choice - "))
+    choice = None
+    try:
+        choice = int(input("Enter your choice - \n"))
+    except ValueError:
+        print("You must enter integer values!!!")
+    except KeyboardInterrupt:
+        print("Programme terminated!!!")
+
 
     if choice == 1:
-        account_number = input("Enter Account Number (account number must have 10 digits) : ")
-        initial_deposit = float(input("Enter initial deposit value : "))
-        bank.Create_account(account_number,initial_deposit)
+        try:
+            account_number = input("Enter Account Number (account number must have 10 digits) : ")
+            initial_deposit = float(input("Enter initial deposit value : "))
+            bank.Create_account(account_number, initial_deposit)
+        except:
+            print("You must enter integer values!! not string values")
+
     elif choice == 2:
-        account_number = input("Enter account number : ")
-        deposit_amount = float(input("Enter deposit amount : "))
-        bank.Deposit(account_number,deposit_amount)
+        try:
+            account_number = input("Enter account number : ")
+            deposit_amount = float(input("Enter deposit amount : "))
+            bank.Deposit(account_number, deposit_amount)
+        except:
+            print("You must enter integer values!! not string values")
+
     elif choice == 3:
-        account_number = input("Enter account number : ")
-        withdraw_amount = float(input("Enter withdraw amount : "))
-        bank.Withdraw(account_number, withdraw_amount)
+        try:
+            account_number = input("Enter account number : ")
+            withdraw_amount = float(input("Enter withdraw amount : "))
+            bank.Withdraw(account_number, withdraw_amount)
+        except:
+            print("You must enter integer values!! not string values")
+
     elif choice==4:
-        account_number = input("Enter account number : ")
-        bank.Balance_check(account_number)
+        try:
+            account_number = input("Enter account number : ")
+            bank.Balance_check(account_number)
+        except:
+            print("You must enter integer values!! not string values")
     elif choice==5:
-        from_account = input("Enter account number : ")
-        to_account = input("To witch account :  ")
-        amount = float(input("Enter amount you wish to transfer : "))
-        bank.Money_transfer(from_account,to_account,amount)
+        try:
+            from_account = input("Enter account number : ")
+            to_account = input("To witch account :  ")
+            amount = float(input("Enter amount you wish to transfer : "))
+            bank.Money_transfer(from_account, to_account, amount)
+        except:
+            print("You must enter integer values!! not string values")
     else:
         print("Exiting!! Programme Exiting!!")
         break
-
-
-
-
-
-
