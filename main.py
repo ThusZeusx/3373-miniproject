@@ -12,9 +12,10 @@ class Bank:
         if account_number  in self.account:
             print("This account number already have!!!")
             return
-        elif initial_deposit < 0:
-            print("Insuffint deposit balance!!")
+        elif initial_deposit < 0 or initial_deposit==0:
+            print("Insuffint initial deposit balance!!")
             return
+
         else:
             self.account[account_number] = initial_deposit
             print(f"Account number {account_number} Created successfull!! and deposited {initial_deposit}")
@@ -63,9 +64,9 @@ class Bank:
         else:
             self.account[from_account] -= amount
             self.account[to_account] += amount
-            print(f"Transfer Success!! Credited RS{amount} from account number {from_account} to account number {to_account}\n"
-                  f"Account number {from_account} new balance = {self.account[from_account]}\n"
-                  f"Account number {to_account} new balance = {self.account[to_account]}")
+            print(f"Transfer Success!! Credited RS {amount} from account number: {from_account}. to this account number : {to_account}\n"
+                  f"Account number : {from_account} new balance = {self.account[from_account]}\n"
+                  f"Account number : {to_account} new balance = {self.account[to_account]}")
 
 
 bank = Bank() #Bank object
